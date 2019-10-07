@@ -1,0 +1,9 @@
+[Unit]
+Description=Socat service to forward {{ src }} to {{ dst }}
+
+[Service]
+User={{ user }}
+ExecStart=/usr/bin/socat {{ opt }} {{ src }},fork {{ dst }}
+
+[Install]
+WantedBy=multi-user.target

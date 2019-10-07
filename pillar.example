@@ -1,0 +1,7 @@
+pillar:
+  socat:
+    source: TCP-LISTEN:4321
+    destination: TCP6:example.com:1234
+
+    # Make sure to set a timeout as UDP that cannot transfer EOF
+    options: -T5
