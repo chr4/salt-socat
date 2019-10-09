@@ -1,0 +1,7 @@
+name: socat
+os: Debian, Ubuntu
+os_family: Debian
+version: 201910
+release: 1
+summary: Formula to configure persistent socat tunnels as systemd services
+description: Formula to configure persistent socat tunnels as systemd services
