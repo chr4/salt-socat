@@ -18,7 +18,7 @@ socat:
     - user: root
     - group: root
     - mode: 644
-    - source: salt://{{ slspath }}/socat.service.jinja
+    - source: salt://{{ tpldir }}/socat.service.jinja
     - template: jinja
     - defaults:
       src: {{ config['source'] }}
