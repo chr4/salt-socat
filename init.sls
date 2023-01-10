@@ -5,14 +5,14 @@ socat:
     - system: true
 
 {% for name, config in pillar['socat'] | dictsort %}
-/lib/systemd/system/socat-{{ name }}.service:
+/etc/systemd/system/socat-{{ name }}.service:
   service.running:
     - name: socat-{{ name }}
     - enable: true
     - watch:
-      - file: /lib/systemd/system/socat-{{ name }}.service
+      - file: /etc/systemd/system/socat-{{ name }}.service
     - require:
-      - file: /lib/systemd/system/socat-{{ name }}.service
+      - file: /etc/systemd/system/socat-{{ name }}.service
       - cmd: systemctl daemon-reload
   file.managed:
     - user: root
@@ -30,5 +30,5 @@ socat:
   cmd.run:
     - name: systemctl daemon-reload
     - onchanges:
-      - file: /lib/systemd/system/socat-{{ name }}.service
+      - file: /etc/systemd/system/socat-{{ name }}.service
 {% endfor %}
