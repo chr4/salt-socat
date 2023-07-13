@@ -5,5 +5,8 @@ Description=Socat service to forward {{ src }} to {{ dst }}
 User={{ user }}
 ExecStart=/usr/bin/socat {{ opt }} {{ src }},fork {{ dst }}
 
+# socat sometimes is a bit fragile (e.g. with DNS errors), restart automatically
+Restart=always
+
 [Install]
 WantedBy=multi-user.target
